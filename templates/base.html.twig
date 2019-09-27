@@ -6,6 +6,17 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block menu %}
+            {% if app.user %}
+                <ul>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li><a href="{{ path('proxy_index') }}">Proxy</a></li>
+                        <li><a href="{{ path('user_index') }}">User</a></li>
+                    {% endif %}
+                    <li><a href="{{ path('logout') }}">Log out</a></li>
+                </ul>
+            {% endif %}
+        {% endblock %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

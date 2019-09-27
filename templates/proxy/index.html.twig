@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Proxy index{% endblock %}
+
+{% block body %}
+    <h1>Proxy index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Ip</th>
+                <th>Port</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for proxy in proxies %}
+            <tr>
+                <td>{{ proxy.id }}</td>
+                <td>
+                    {% if app.user and is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('proxy_show', {'id': proxy.id}) }}">{{ proxy.ip }}</a>
+                    {% else %}
+                        {{ proxy.ip }}
+                    {% endif %}
+                </td>
+                <td>{{ proxy.port }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if app.user and is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('proxy_new') }}">Create new</a>
+    {% endif %}
+    <a href="{{ path('proxy_import') }}">Import CSV</a>
+{% endblock %}

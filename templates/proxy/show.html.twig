@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Proxy{% endblock %}
+
+{% block body %}
+    <h1>Proxy</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ proxy.id }}</td>
+            </tr>
+            <tr>
+                <th>Ip</th>
+                <td>{{ proxy.ip }}</td>
+            </tr>
+            <tr>
+                <th>Port</th>
+                <td>{{ proxy.port }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('proxy_index') }}">back to list</a>
+
+    <a href="{{ path('proxy_edit', {'id': proxy.id}) }}">edit</a>
+
+    {{ include('proxy/_delete_form.html.twig') }}
+{% endblock %}

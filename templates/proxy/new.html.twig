@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Proxy{% endblock %}
+
+{% block body %}
+    <h1>Create new Proxy</h1>
+
+    {{ include('proxy/_form.html.twig') }}
+
+    <a href="{{ path('proxy_index') }}">back to list</a>
+{% endblock %}

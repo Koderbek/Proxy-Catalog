@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ include('proxy/_form.html.twig') }}
+
+    <a href="{{ path('proxy_index') }}">back to list</a>
+{% endblock %}

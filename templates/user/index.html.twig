@@ -11,8 +11,6 @@
                 <th>Id</th>
                 <th>Login</th>
                 <th>Role</th>
-                <th>Password</th>
-                <th>Salt</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,8 +20,6 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.login }}</td>
                 <td>{{ user.role }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.salt }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
